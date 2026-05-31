@@ -18,7 +18,7 @@
 <body>
 
     <header class="header">
-        <a href="#" class="logo">Cine<span>Dev</span></a>
+        <a href="listar.php" class="logo">Cine<span>Dev</span></a>
         <nav class="navbar">
             <a href="#" class="active">Início</a>
             <a href="forms_cadastrar.php">Adicionar</a>
@@ -26,7 +26,6 @@
             <a href="forms_excluir.php">Excluir</a>
         </nav>
     </header>
-    <a href="listar.php">%%</a>
     <main class="container">
         <h1 class="main-title">Filmes em Destaque</h1>
 
