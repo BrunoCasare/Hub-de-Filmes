@@ -1,6 +1,6 @@
 <?php
 
-    require_once 'config/conexão.php';
+    require_once 'config/conexao.php';
 
     $sql = "SELECT * FROM filmes;";
     $resultado = $conexao->query($sql);
@@ -16,7 +16,7 @@
 </head>
 <body>
     <h3>Lista de filmes cadastradas</h3>
-    <?php if($resultado->num_rows > 0) : ?>
+    <?php if($resultado && mysqli_num_rows($resultado) > 0) : ?>
     <table border="1" cellpading="5" cellspacing="0">
         <tr>
             <td>Código</td>

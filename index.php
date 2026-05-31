@@ -1,6 +1,6 @@
 <?php
 
-    require_once 'config/conexão.php';
+    require_once 'config/conexao.php';
 
     $sql = "SELECT * FROM filmes;";
     $resultado = mysqli_query($conexao, $sql);
@@ -31,7 +31,7 @@
         <h1 class="main-title">Filmes em Destaque</h1>
 
         <section class="movies-grid">
-            <?php if($resultado->num_rows > 0) : 
+            <?php if($resultado && mysqli_num_rows($resultado) > 0) : 
                 
                 while($filme = mysqli_fetch_assoc($resultado)) :
             ?>

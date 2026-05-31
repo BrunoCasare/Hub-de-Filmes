@@ -1,6 +1,6 @@
 <?php
   
-  require 'config/conexão.php';
+  require 'config/conexao.php';
 
   $codigo = (int)$_POST["codigo"];
 

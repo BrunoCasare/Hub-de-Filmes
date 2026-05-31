@@ -1,6 +1,6 @@
 <?php
 
-    require 'config/conexão.php';
+    require 'config/conexao.php';
 
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -18,10 +18,10 @@
         if (move_uploaded_file($imagem['tmp_name'], $pathCompleto)) {
             $sql = "INSERT INTO filmes (NOME, GENERO, NOTA, IMAGEM) VALUES ('$nome', '$genero', '$nota', '$pathCompleto')";
 
-            if (mysqli_query($conexão, $sql)) {
+            if (mysqli_query($conexao, $sql)) {
                 header("location: index.php?sucesso=1");
             } else {
-                echo "Erro ao salvar imagem no banco: " . mysqli_error($conexão);
+                echo "Erro ao salvar imagem no banco: " . mysqli_error($conexao);
             }
         } else {
             echo "Erro ao fazer o upload da imagem.";
