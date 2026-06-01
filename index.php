@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineDev - Catálogo de Filmes</title>
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 
@@ -21,7 +22,7 @@
         <a href="listar.php" class="logo">Cine<span>Dev</span></a>
         <nav class="navbar">
             <a href="#" class="active">Início</a>
-            <a href="forms_cadastrar.php">Adicionar</a>
+            <a href="forms_cadastrar.php">Cadastrar</a>
             <a href="forms_editar.php">Editar</a>
             <a href="forms_excluir.php">Excluir</a>
         </nav>

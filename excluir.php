@@ -16,7 +16,6 @@
     echo "Erro ao remover filme.";
   
   $stm->close();
-
   $conexao->close();
 
   echo "<br><br>";

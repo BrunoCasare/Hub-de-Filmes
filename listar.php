@@ -13,8 +13,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar filmes</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
+<body>  
+
     <h3>Lista de filmes cadastradas</h3>
     <?php if($resultado && mysqli_num_rows($resultado) > 0) : ?>
     <table border="1" cellpading="5" cellspacing="0">

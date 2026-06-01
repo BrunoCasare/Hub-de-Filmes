@@ -20,14 +20,15 @@
         if ($stm->execute()) {
             $stm->close();
             $conexao->close();
-
             header("location: index.php?sucesso=1");
             exit;
+
         } else {
             echo "Erro ao cadastrar filme no banco de dados: " . $stm->error;
         }
 
         $stm->close();
+        
     } else {
         echo "Erro ao fazer o upload da imagem.";
     }

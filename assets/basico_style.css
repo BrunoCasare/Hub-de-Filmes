@@ -1,0 +1,110 @@
+* {
+    background-color: #1a1e24;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #1a1e24;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.form-title {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    border-left: 4px solid #e53935; 
+    padding-left: 12px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: #b0bec5; 
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+    background-color: #252a34;
+    border: 1px solid #3f4756;
+    border-radius: 6px;
+    color: #ffffff;
+    padding: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #e53935; 
+    box-shadow: 0 0 8px rgba(229, 57, 53, 0.2);
+}
+
+.form-group input[type="file"] {
+    color: #b0bec5;
+    padding: 8px 0;
+    font-size: 0.9rem;
+}
+
+.form-group input[type="file"]::file-selector-button {
+    background-color: #3f4756;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: background 0.2s ease;
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+    background-color: #4f586b;
+}
+
+.btn-submit {
+    display: inline-block;
+    width: 100%;
+    background-color: #e53935; 
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #d32f2f; 
+}
+
+.btn-submit:active {
+    transform: scale(0.98); 
+}
+
+.link-back {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #b0bec5;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.link-back:hover {
+    color: #ffffff;
+}

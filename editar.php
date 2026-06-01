@@ -2,29 +2,26 @@
 
     require 'config/conexao.php';
 
-    if($_SERVER["REQUEST_METHOD"] == "POST")
-    {
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+
         $codigo = (int)$_POST["codigo"];
         $nome = isset($_POST["nome"]) ? $_POST["nome"] : null;
         $nota = isset($_POST["nota"]) ? (int)$_POST["nota"] : null;
         $genero = isset($_POST["genero"]) ? $_POST["genero"] : null;
 
-        $imagem = $_FILES["image"];
-        $path = pathinfo($imagem["name"], PATHINFO_EXTENSION);
-        $novoNomeImagem = uniqid() . "." . $path;
-        $pastaDestino = "uploads/";
-        $pathCompleto = $pastaDestino . $novoNomeImagem;
+        $pathCompleto = null;
 
-        if (move_uploaded_file($imagem['tmp_name'], $pathCompleto)) {
-            $sql = "INSERT INTO filmes (NOME, GENERO, NOTA, IMAGEM) VALUES ('$nome', '$genero', '$nota', '$pathCompleto')";
+        if (isset($_FILES["imagem"]) && $_FILES["imagem"]["error"] === UPLOAD_ERR_OK) {
+            $imagem = $_FILES["imagem"];
 
-            if (mysqli_query($conexao, $sql)) {
-                header("location: index.php?sucesso=1");
-            } else {
-                echo "Erro ao salvar imagem no banco: " . mysqli_error($conexao);
+            $path = pathinfo($imagem["name"], PATHINFO_EXTENSION);
+            $novoNomeImagem = uniqid() . "." . $path;
+            $pastaDestino = "uploads/";
+            $pathCompleto = $pastaDestino . $novoNomeImagem;
+
+            if (!move_uploaded_file($imagem['tmp_name'], $pathCompleto)) {
+                die("Erro ao mover o arquivo de imagem para o servidor.");
             }
-        } else {
-            echo "Erro ao fazer o upload da imagem.";
         }
 
         $campos = [];
@@ -52,6 +49,13 @@
             $tipos .= "s";
         }
 
+        if(!empty($pathCompleto))
+        {
+            $campos[] = "IMAGEM = ?";
+            $valores[] = $pathCompleto;
+            $tipos .= "s";
+        }
+
         if(empty($campos))
             die("Nenhum campo foi atualizado!");
 
@@ -61,17 +65,14 @@
         $stm = $conexao->prepare($sql);
         $stm->bind_param($tipos, ...$valores);
 
-        if($stm->execute())
-            echo "filme n°$codigo atualizado com sucesso";
-        else
-            echo "Erro ao atualizar filme $stm->error";
+        if($stm->execute()) {
+            header("location: index.php");
+            exit;
+        } else {
+            echo "Erro ao atualizar filme: " . "$stm->error";
+        }
 
         $stm->close();
-
         $conexao->close();
     }
-
-    echo "<br><br>";
-    header("location: index.php");
-
-
+?>
