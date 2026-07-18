@@ -24,7 +24,7 @@
 
                 <div class="form-group">
                 <label for="nota">Nota: </label>
-                <input type="number" name="nota" required><br><br>
+                <input type="number" name="nota" step="0.1" min="0" max="10" required><br><br>
                 </div>
 
                 <div class="form-group">

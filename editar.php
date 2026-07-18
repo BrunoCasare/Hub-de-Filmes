@@ -6,7 +6,7 @@
 
         $codigo = (int)$_POST["codigo"];
         $nome = isset($_POST["nome"]) ? $_POST["nome"] : null;
-        $nota = isset($_POST["nota"]) ? (int)$_POST["nota"] : null;
+        $nota = isset($_POST["nota"]) ? (float)$_POST["nota"] : null;
         $genero = isset($_POST["genero"]) ? $_POST["genero"] : null;
 
         $pathCompleto = null;
@@ -39,7 +39,7 @@
         {
             $campos[] = "NOTA = ?";
             $valores[] = $nota;
-            $tipos .= "i";
+            $tipos .= "d";
         }
 
         if(!empty($genero))

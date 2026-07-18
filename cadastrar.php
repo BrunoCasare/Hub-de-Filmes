@@ -3,7 +3,7 @@
     require 'config/conexao.php';
 
     $nome = $_POST["nome"];
-    $nota = (int)$_POST["nota"];
+    $nota = (double)$_POST["nota"];
     $genero = $_POST["genero"];
 
     $imagem = $_FILES["imagem"];
@@ -15,7 +15,7 @@
     if (move_uploaded_file($imagem['tmp_name'], $pathCompleto)) {
         $sql = "INSERT INTO filmes (NOME, GENERO, NOTA, IMAGEM) VALUES (?, ?, ?, ?)";
         $stm = $conexao->prepare($sql);
-        $stm->bind_param("ssis", $nome, $genero, $nota, $pathCompleto);
+        $stm->bind_param("ssds", $nome, $genero, $nota, $pathCompleto);
 
         if ($stm->execute()) {
             $stm->close();
